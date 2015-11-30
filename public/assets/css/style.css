@@ -1,0 +1,106 @@
+body {
+	background-color:#00D0BC;
+	padding-top: 0px !important;
+}
+.table{
+	margin-bottom: 0px;
+}
+#wrapper{
+	color:#00907c;
+}
+.header{
+	margin-left: 10px;
+}
+.navbar{
+	border : 0px;
+}
+.navbar > .nav > li > a{
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.navbar-nav > li:hover, .navbar-nav > li:active{
+	background-color: #7995ba;
+}
+
+.body-user{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.body-addUser{
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px 40px 40px 0px;
+	background-color: #FFFFFF;
+	border-radius: 5px;
+}
+
+.table-user{
+	background-color: #f1f9f8;
+	margin-top: 10px;
+}
+.navbar-brand{
+	display: none;
+}
+
+.angular-google-map-container {
+	height: 400px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#page-map{
+	margin-bottom: 40px;
+}
+.angular-google-map-container{
+	height: 450px;
+}
+@media(max-width: 768px) {
+	.navbar-nav{
+		margin: 0px;
+	}
+	.navbar > .nav > li{
+		text-align: center;
+		padding: 0px;
+	}
+	.navbar > .nav > li > a{
+		font-size: .9em;
+		font-weight: bold;
+		padding: 6px 15px 6px 15px !important;
+	}
+	.header{
+		text-align: center;
+	}
+	.body-user{
+		width: 96%;
+	}
+	.body-addUser{
+		width: 100%;
+		padding: 10px 0px 5px 0px;
+	}
+	.form-input{
+		margin-bottom: -8px;
+		height: 30px;
+	}
+	.control-label{
+		font-size: .9em;
+	}
+	.navbar-brand{
+		display: block;
+	}
+	.header{
+		display: none;
+	}
+}
+
+@media(max-width: 1182px) {
+
+	.body-addUser{
+		width: 80%;
+		padding: 20px 40px 20px 40px;
+	}
+
+}

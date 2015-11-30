@@ -1,0 +1,53 @@
+<div class="page-adduser">
+
+	<header>
+		<center><h2>Add New User</h2></center>	
+	</header>
+
+	<main class="body-addUser">
+
+		<form class="form-horizontal" ng-submit="addUser()">
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Firstname</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control form-input" name="firstName" placeholder="Firstname" ng-model="firstName"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Lastname</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control form-input" name="lastName" placeholder="Lastname" ng-model="lastName"/>
+				</div>
+			</div>			
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Gender</label>
+				<div class="col-lg-10">
+					<select class="form-control form-input" name="gender" ng-model="gender" ng-init="gender='0'">
+						<option value="0">Male</option>
+						<option value="1">Female</option>
+					</select>
+				</div>
+			</div>	
+
+			<div class="form-group">
+				<label class="col-lg-2 control-label">Email</label>
+				<div class="col-lg-10">
+					<input type="text" class="form-control form-input" name="email" placeholder="Email" ng-model="email"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-lg-offset-2 col-lg-10">
+					<button type="submit" class="btn btn-info">Submit</button>
+					<button type="submit" class="btn btn-warning">Reset</button>
+				</div>
+			</div>										
+
+		</form>
+
+	</main>
+
+</div>

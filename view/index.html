@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/fullcalendar.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/angular-filemanager.css">
+</head>
+<body ng-app="myApp">
+
+	<div id="wrapper">
+
+		<div class="header">
+			<h2>Ome's playground</h2>
+		</div>
+
+	    <nav class="navbar navbar-default">
+
+			<!-- Brand and toggle get grouped for better mobile display -->
+	        <div class="navbar-header">
+	            <button type="button" ng-init="navbarCollapse = true" ng-click="navbarCollapse = !navbarCollapse" class="navbar-toggle">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" ui-sref="homepage">Ome's playground</a>
+	        </div>
+	        <!-- Collection of nav links and other content for toggling -->
+	        <div id="navbarCollapse" class="collapse navbar-collapse" collapse="navbarCollapse">
+				<ul class="nav navbar-nav">
+					<li><a ui-sref="homepage">Homepage</a></li>
+					<li><a ui-sref="users">User List</a></li>
+					<li><a ui-sref="adduser">Add User</a></li>
+					<li><a ui-sref="calendar">Calendar</a></li>
+					<li><a ui-sref="file">File</a></li>
+					<li><a ui-sref="map">Map</a></li>
+				</ul>
+	        </div>
+
+
+	    </nav>
+
+	    <div ui-view></div>
+
+	</div>
+
+<!-- build:js public/lib.js -->
+	<script src="/libs/jquery/dist/jquery.js"></script>
+	<script src="/libs/jquery-ui/jquery-ui.js"></script>
+	<script src="/libs/moment/moment.js"></script>
+	<script src="/libs/fullcalendar/dist/fullcalendar.js"></script>
+	<script src="/libs/angular/angular.js"></script>
+	<script src="/libs/angular-bootstrap/ui-bootstrap.js"></script>
+	<script src="/libs/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="/libs/lodash/lodash.js"></script>
+	<script src="/libs/angular-simple-logger/dist/angular-simple-logger.js"></script>
+	<script src="/libs/angular-google-maps/dist/angular-google-maps.js"></script>
+	<script src="/libs/angular-file-upload/dist/angular-file-upload.min.js"></script>
+<!-- endbuild -->
+
+	<script src="bundle.js"></script>
+</body>
+</html>
