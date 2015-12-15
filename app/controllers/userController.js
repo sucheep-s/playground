@@ -1,7 +1,7 @@
 myApp.controller('UserController', function($scope, $location, UserService){
 
 	$scope.init = function(){
-		getUsers();
+		getUsers(); 
 	};
 
 	function getUsers(){

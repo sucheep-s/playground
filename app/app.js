@@ -40,7 +40,7 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
 
 myApp.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyCrTln0RisVqMas-3I7O5djpc6gsPqItOg',
+        key: 'AIzaSyCwc_JQAoQ8DEFzV5A6X3q5XiPptqIg4fk',
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });

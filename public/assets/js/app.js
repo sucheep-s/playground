@@ -40,18 +40,19 @@ myApp.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $
 
 myApp.config(function(uiGmapGoogleMapApiProvider) {
     uiGmapGoogleMapApiProvider.configure({
-        key: 'AIzaSyCrTln0RisVqMas-3I7O5djpc6gsPqItOg',
+        key: 'AIzaSyCwc_JQAoQ8DEFzV5A6X3q5XiPptqIg4fk',
         v: '3.20', //defaults to latest 3.X anyhow
         libraries: 'weather,geometry,visualization'
     });
 });
-;myApp.factory('FileService', function($http){
+myApp.factory('FileService', function($http){
 
 	var factory = {};
 
 	return factory;
 
-});;myApp.factory('UserService', function($http){
+});
+myApp.factory('UserService', function($http){
 
 	var factory = {};
 	var urlBase = 'http://192.168.1.38/buswifi/rest/userapi';
@@ -70,7 +71,8 @@ myApp.config(function(uiGmapGoogleMapApiProvider) {
 
 	return factory;
 
-});;myApp.controller('CalendarController', ['$scope', function($scope){
+});
+myApp.controller('CalendarController', ['$scope', function($scope){
    var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
@@ -120,9 +122,11 @@ myApp.config(function(uiGmapGoogleMapApiProvider) {
 
     /* event sources array*/
     $scope.eventSources = [$scope.events, $scope.eventSource];
-}]);;myApp.controller('FileController', function($scope, $location, FileUploader, FileService){
+}]);
+myApp.controller('FileController', function($scope, $location, FileUploader, FileService){
 	$scope.uploader = new FileUploader();
-});;myApp.controller('MapController', function($scope, $location, $log){
+});
+myApp.controller('MapController', function($scope, $location, $log){
 
   $scope.map = {
     center: {
@@ -171,10 +175,11 @@ myApp.config(function(uiGmapGoogleMapApiProvider) {
   ];
 
 });
-;myApp.controller('UserController', function($scope, $location, UserService){
+
+myApp.controller('UserController', function($scope, $location, UserService){
 
 	$scope.init = function(){
-		getUsers();
+		getUsers(); 
 	};
 
 	function getUsers(){
@@ -206,7 +211,8 @@ myApp.config(function(uiGmapGoogleMapApiProvider) {
 	// COLLAPSE =====================
   	$scope.navbarCollapse = false;
 
-});;/*
+});
+/*
 *  AngularJs Fullcalendar Wrapper for the JQuery FullCalendar
 *  API @ http://arshaw.com/fullcalendar/
 *
@@ -547,7 +553,8 @@ angular.module('ui.calendar', [])
         });
       }
     };
-}]);;angular.module('myApp.templates', []).run(['$templateCache', function($templateCache) {
+}]);
+angular.module('myApp.templates', []).run(['$templateCache', function($templateCache) {
   $templateCache.put("views/adduser.html",
     "<div class=page-adduser><header><center><h2>Add New User</h2></center></header><main class=body-addUser><form class=form-horizontal ng-submit=addUser()><div class=form-group><label class=\"col-lg-2 control-label\">Firstname</label><div class=col-lg-10><input class=\"form-control form-input\" name=firstName placeholder=Firstname ng-model=\"firstName\"></div></div><div class=form-group><label class=\"col-lg-2 control-label\">Lastname</label><div class=col-lg-10><input class=\"form-control form-input\" name=lastName placeholder=Lastname ng-model=\"lastName\"></div></div><div class=form-group><label class=\"col-lg-2 control-label\">Gender</label><div class=col-lg-10><select class=\"form-control form-input\" name=gender ng-model=gender ng-init=\"gender='0'\"><option value=0>Male</option><option value=1>Female</option></select></div></div><div class=form-group><label class=\"col-lg-2 control-label\">Email</label><div class=col-lg-10><input class=\"form-control form-input\" name=email placeholder=Email ng-model=\"email\"></div></div><div class=form-group><div class=\"col-lg-offset-2 col-lg-10\"><button type=submit class=\"btn btn-info\">Submit</button> <button type=submit class=\"btn btn-warning\">Reset</button></div></div></form></main></div>");
   $templateCache.put("views/calendar.html",

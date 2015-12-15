@@ -3,7 +3,12 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    clean: ["dist", 'tmp', 'public/assets/js/bundle.js'],
+    clean: {
+      options : {
+        force : true
+      },
+      main : ['dist', 'template', '.tmp/*', 'public/assets/js/app.js'],
+    },
 
     jshint: {
       all: [ 'Gruntfile.js', 'app/*.js', 'app/**/*.js', '!app/directives/uiCalendarDirective.js' ]
@@ -26,39 +31,68 @@ module.exports = function(grunt) {
           removeStyleLinkTypeAttributes: true
         }
       },
-      dist: {
+      main: {
         src: [ 'app/views/*.html' ],
-        dest: 'tmp/templates.js'
+        dest: 'template/template.js'
       }
     },
     concat: {
-      options: {
+      /*options: {
         separator: ';'
-      },
-      dist: {
+      },*/
+      app: {
         src: [
         'app/*.js',
         'app/services/*.js',
         'app/controllers/*.js',
         'app/directives/*.js',
-        'tmp/*.js'
+        'template/*.js'
          ],
-        dest: 'dist/bundle.js'
+        dest: 'public/assets/js/app.js'
       }
     },
-    uglify: {
-      dist: {
+    useminPrepare: {
+      html: 'view/index.html',
+      options: {
+        dest: 'view'
+      }
+    },
+    usemin: {
+      html:['view/index.html']
+    },
+    copy: {
+      main: {
+        src: 'app/index.html',
+        dest: 'view/index.html'
+      }
+    },
+    cssmin : {
+      dist : {
+        files : {
+          'public/assets/css/main.css' : ['.tmp/concat/assets/css/main.css']
+        }
+      }
+    },
+    uglify : {
+      dist:{
         files: {
-          'public/bundle.js': [ 'dist/bundle.js' ]
-        },
+           'public/assets/js/main.js': ['.tmp/concat/assets/js/main.js']
+         },
         options: {
           mangle: false
         }
       }
     },
-    useminPrepare: {
-      src: 'view/index.html'
+    watch: {
+      files: ['app/*.js', 'app/**/*.js', 'app/views/*.html'],
+      tasks: ['clean', 'copy', 'jshint', 'html2js', 'concat:app']
+    },
+    nodemon: {
+      default: {
+        script: 'server.js'
+      }
     }
+
     // Task configuration will be written here
   });
 
@@ -66,11 +100,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-nodemon');
   // Loading of tasks and registering tasks will be written here
-  grunt.registerTask('default', [ 'clean', 'jshint', 'html2js:dist', 'concat:dist', 'uglify:dist']);
-  grunt.registerTask('build', [ 'useminPrepare']);
+
+  grunt.registerTask('dev', [ 'clean', 'copy', 'jshint', 'html2js', 'concat:app']);
+  grunt.registerTask('build', [ 'clean', 'copy', 'jshint', 'html2js', 'concat:app', 'useminPrepare', 'concat:generated', 'cssmin:dist', 'uglify:dist', 'usemin']);
 
 };
