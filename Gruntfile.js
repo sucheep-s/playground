@@ -83,9 +83,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    injector: {
+      options: {},
+      local_dependencies: {
+        files: {
+          'app/index.html': [ 'app/*.js', 'app/services/*.js', 'app/controllers/*.js', 'app/directives/*.js', 'template/*.js' ]
+        }
+      }
+    },
     watch: {
-      files: ['app/*.js', 'app/**/*.js', 'app/views/*.html'],
-      tasks: ['clean', 'copy', 'jshint', 'html2js', 'concat:app']
+      files: ['app/*.js', 'app/*.html', 'app/**/*.js', 'app/views/*.html'],
+      tasks: ['dev']
     },
     nodemon: {
       default: {
@@ -105,6 +113,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-injector');
   grunt.loadNpmTasks('grunt-nodemon');
   // Loading of tasks and registering tasks will be written here
 
